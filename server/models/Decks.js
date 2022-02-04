@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+const cardSchema = require("./Cards")
 
 const deckSchema  = new Schema ({
-    deckId: Number,
     deckName: String,
-    cardsInDeck: [{
-        cardId: Number,
-        question: String,
-        answer: String,
-        correct: Boolean}]
+    cardsInDeck: [cardSchema]
 });
 
 mongoose.model("decks", deckSchema);

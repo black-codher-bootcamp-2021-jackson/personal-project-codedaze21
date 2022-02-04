@@ -1,45 +1,35 @@
 import React, { useState, useEffect } from "react";
+import {getAllDecks} from "./services/deckService";
+import Homepage from "./components/Homepage";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllProfiles } from "./services/profileService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [decks, setDecks] = useState([]);
 
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getDecks() {
+      
+      if (decks.length < 1) {
+        const response = await getAllDecks();
+        console.log(response)
+        setDecks(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
-
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
-  };
-
+    getDecks();
+  }, [decks]);
+  console.log(decks)
   return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
-    </div>
-  );
+    <>
+      <Homepage decks={decks}/>
+    </>
+    // <div>
+    //   {decks.map ((deck, index) => <h1 key={index}>{deck.deckName}</h1>)}
+    // </div>
+  )
+
 }
 
 export default App;
