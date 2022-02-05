@@ -8,34 +8,34 @@ const deckRoutes = (app) => {
     return res.status(200).send(decks);
   });
 
-  app.post(`/api/user`, async (req, res) => {
-    const user = await User.create(req.body);
+  app.post(`/api/decks`, async (req, res) => {
+    const decks = await Decks.create(req.body);
 
     return res.status(201).send({
       error: false,
-      user,
+      decks,
     });
   });
 
-  app.put(`/api/user/:id`, async (req, res) => {
+  app.put(`/api/decks/:id`, async (req, res) => {
     const { id } = req.params;
 
-    const user = await User.findByIdAndUpdate(id, req.body);
+    const decks = await Decks.findByIdAndUpdate(id, req.body);
 
     return res.status(202).send({
       error: false,
-      user,
+      decks,
     });
   });
 
-  app.delete(`/api/user/:id`, async (req, res) => {
+  app.delete(`/api/decks/:id`, async (req, res) => {
     const { id } = req.params;
 
-    const user = await User.findByIdAndDelete(id);
+    const decks = await Decks.findByIdAndDelete(id);
 
     return res.status(202).send({
       error: false,
-      user,
+      decks,
     });
   });
 };

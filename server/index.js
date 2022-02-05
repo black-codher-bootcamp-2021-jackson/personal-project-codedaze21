@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 // require("./models/Profiles"); //This is just an example. Don't forget to delete this
 require("./models/Users");
 require("./models/Decks");
+require("./models/Cards");
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 // It's importing and using everything from the profilesRoutes.js file and also passing app as a parameter for profileRoutes to use
 require("./routes/usersRoutes")(app); 
 require("./routes/decksRoutes")(app);
+require("./routes/cardsRoutes")(app);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
