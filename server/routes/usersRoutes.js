@@ -8,6 +8,38 @@ const userRoutes = (app) => {
     return res.status(200).send(users);
   });
 
+
+
+  app.post('/api/registerUser', async (req,res) => {
+    console.log(req.body)
+    try {
+        await User.create({
+        username: req.body.username,
+        emailAddress: req.body.emailAddress,
+        password: req.body.password,
+      })
+      res.json({status: 'ok'})
+    } catch (err) {
+      res.json({status: 'error', error: 'Duplicate email' })
+    }
+    
+  })
+
+  app.post('/api/loginUser', async (req,res) => {
+
+        const user = await User.findOne({
+        emailAddress: req.body.emailAddress,
+        password: req.body.password,
+      })
+
+      if (user) {
+          return res.json({ status: 'ok', user: true})
+      } else {
+        return res.json({ status: 'error', user: false})
+      }
+    
+  })
+
   app.post(`/api/user`, async (req, res) => {
     const user = await User.create(req.body);
 
@@ -16,6 +48,7 @@ const userRoutes = (app) => {
       user,
     });
   });
+
 
   app.put(`/api/user/:id`, async (req, res) => {
     const { id } = req.params;

@@ -10,7 +10,9 @@ require("./models/Users");
 require("./models/Decks");
 require("./models/Cards");
 
-
+// importing Cors
+  const cors = require('cors')
+// 
 const app = express();
 
 // This is where your API is making its initial connection to the database
@@ -20,6 +22,12 @@ mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
 });
 
 app.use(bodyParser.json());
+
+// added express.json
+app.use(express.json())
+// added cors
+app.use(cors())
+
 
 // IMPORT YOUR API ROUTES HERE
 // Below is just an example. Don't forget to delete it. 
