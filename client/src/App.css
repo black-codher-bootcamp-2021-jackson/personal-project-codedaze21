@@ -65,6 +65,23 @@ button.signUpButton {
   color: #4D4D4D
 }
 
+/* NavBarAfter CSS */
+
+.profilePicNavWrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.UserProfileImgNav{
+    position: relative;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+    margin: auto;
+}
+
 /* LoginScreen CSS */
 .homepageWrap{
   margin: auto;
@@ -208,6 +225,25 @@ button.signUpButton {
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 30px;
+  flex-direction: column;
+}
+
+.signupform {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.signUpFormCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  width: 300px;
+  margin: auto;
 }
 
 .userNameSignupInput {

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
+const jwt = require('jsonwebtoken')
 
 const userRoutes = (app) => {
   app.get(`/api/user`, async (req, res) => {
@@ -25,7 +26,7 @@ const userRoutes = (app) => {
     
   })
 
-  app.post('/api/loginUser', async (req,res) => {
+  app.post('/api/loginuser', async (req,res) => {
 
         const user = await User.findOne({
         emailAddress: req.body.emailAddress,
@@ -33,7 +34,16 @@ const userRoutes = (app) => {
       })
 
       if (user) {
-          return res.json({ status: 'ok', user: true})
+
+          const token = jwt.sign(
+            {
+              emailAddress: user.emailAddress,
+              password: user.password,
+          }, 
+          'br41nsync8'
+          )
+
+          return res.json({ status: 'ok', user: token })
       } else {
         return res.json({ status: 'error', user: false})
       }

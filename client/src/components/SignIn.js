@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
+const SignIn = ({setLoggedIn}) => {
 
     const [emailAddress, setEmailAddress] = useState("")
     const [password, setPassword] = useState("")
+    const history = useNavigate ()
 
     async function loginUser(event) {
 
         event.preventDefault()
 
-        const response = await fetch("http://localhost:8080/api/loginUser", {
+        const response = await fetch("http://localhost:8080/api/loginuser", {
             method: 'POST',
 
             headers: {
@@ -22,6 +24,18 @@ const SignIn = () => {
         })
 
         const data = await response.json()
+
+        if(data.user) {
+            alert('Login Succesful')
+            setLoggedIn (data.user)
+            localStorage.setItem('user', JSON.stringify(data.user));
+            // add location of after sign in mainpage
+
+            history("/dashboard");
+        } else {
+            alert('Please check your username and password')
+        }
+
         console.log(data)
     }
 

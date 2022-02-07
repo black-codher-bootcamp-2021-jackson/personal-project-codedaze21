@@ -34,8 +34,8 @@ const SignUp = () => {
                 <h3 className="createAccountDesc">Create an account to manage your flashcards</h3>
             </div>
             <div className="signupInputField">
-                <form onSubmit={signUpUser}>
-                <div>
+                <form className="signupform" onSubmit={signUpUser}>
+                <div className="signUpFormCont">
                     <label><input className="userNameSignupInput" type="text" name="username" id="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/></label>
                     <label><input className="emailSignupInput" type="email" name="emailAddress" placeholder="Email" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)}/></label>
                     <label><input className="passwordSignupInput" type="password" id="userPassword" minLength="8" name="password" placeholder="Password (8 characters minimum)" value={password} onChange={(e) => setPassword(e.target.value)}/></label>

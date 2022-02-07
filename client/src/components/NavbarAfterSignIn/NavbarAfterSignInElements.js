@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Link as LinkR} from 'react-router-dom';
 import {Link as LinkS} from 'react-scroll';
+import {FaBars} from 'react-icons/fa'
 
 export const Nav = styled.nav`
     background: #FFF;
@@ -25,6 +26,7 @@ export const Nav = styled.nav`
     @media screen and (max-width: 480px) {
         width: 100%;
         margin-top: 20px;
+        justify-content: flex-start;
     }
 `
 
@@ -42,7 +44,7 @@ export const NavbarContainer = styled.div`
     }
 
     @media screen and (max-width: 480px) {
-        justify-content: center;
+        justify-content: space-between;
     }
 `
 
@@ -67,19 +69,19 @@ export const NavLogo = styled(LinkR)`
     }
 `
 
-export const MobileIcon = styled.div`
+export const Bars = styled(FaBars)`
     display: none;
 
     @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: -8px;
-        right: 0;
-        transform: translate(-100%, 60%);
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-items: center;
+        // transform: translate(-100%, 60%);
         font-size: 2.5rem;
         cursor: pointer;
         color: #000;
-        margin-right: -10px;
+        top: 10px;
         
     }
 `

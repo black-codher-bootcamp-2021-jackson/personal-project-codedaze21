@@ -12,7 +12,9 @@ require("./models/Cards");
 
 // importing Cors
   const cors = require('cors')
-// 
+// importing json token
+const jwt = require('jsonwebtoken')
+
 const app = express();
 
 // This is where your API is making its initial connection to the database
@@ -27,6 +29,8 @@ app.use(bodyParser.json());
 app.use(express.json())
 // added cors
 app.use(cors())
+
+// app.use(jwt())
 
 
 // IMPORT YOUR API ROUTES HERE

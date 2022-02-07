@@ -1,11 +1,12 @@
 import React, { useState, useEffect} from 'react'
-import {FaBars} from 'react-icons/fa'
-import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks} from './NavbarElements'
-import gwilsonlogo from '../../Images/BrainSyncLogo.svg'
+
+import {Nav, NavbarContainer, NavLogo, Bars, NavMenu, NavItem, NavLinks} from './NavbarAfterSignInElements'
+import BrainSyncLogo from '../../Images/BrainSyncLogo.svg'
+import UserProfilePic from '../../Images/UserTemp.svg'
 import{animateScroll as scroll} from 'react-scroll'
 
 
-const Navbar = ({toggle}) => {
+const NavbarAfterSignIn = ({toggle}) => {
 
     const [scrollNav,setScrollNav] = useState(false);
 
@@ -29,16 +30,14 @@ const Navbar = ({toggle}) => {
         <>
             <Nav scrollNav={scrollNav}>
                 <NavbarContainer>
-                    <NavLogo to="/"><img alt="Logo" src={gwilsonlogo} onClick={toggleHome} height="20"/></NavLogo>
-                    <MobileIcon onClick={toggle}>
-                        <FaBars/>
-                    </MobileIcon>
+                    <div className="profilePicNavWrap">
+                        <img className="UserProfileImgNav" alt="userpic" src={UserProfilePic} href=''/>
+                    </div>
+                    <NavLogo to="/"><img alt="Logo" src={BrainSyncLogo} onClick={toggleHome} height="20"/></NavLogo>
+                    <Bars onClick={toggle}/>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to='/login'><button className="loginButton">LOGIN</button></NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks to='/signUp'><button className="signUpButton">SIGN UP</button></NavLinks>
+                            <NavLinks to='/logout'><button className="logoutButton">LOGOUT</button></NavLinks>
                         </NavItem>
                     </NavMenu>
                 </NavbarContainer>
@@ -47,4 +46,4 @@ const Navbar = ({toggle}) => {
     );
 ;}
 
-export default Navbar;
+export default NavbarAfterSignIn;
