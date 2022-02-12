@@ -36,7 +36,7 @@ export const NavbarContainer = styled.div`
     height: 60px;
     z-index: 1;
     width: 100%;
-    padding: 35px 45px 0px 24px;
+    padding: 35px 24px 0px 24px;
     max-width: 1400px;
     
     @media screen and (max-width: 768px) {

@@ -26,6 +26,7 @@ const SignIn = ({setLoggedIn}) => {
         const data = await response.json()
 
         if(data.user) {
+            // add a loader
             alert('Login Succesful')
             setLoggedIn (data.user)
             localStorage.setItem('user', JSON.stringify(data.user));
@@ -38,6 +39,8 @@ const SignIn = ({setLoggedIn}) => {
 
         console.log(data)
     }
+
+    
 
     return(
         <div className="signInDescWrap">

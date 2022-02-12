@@ -2,9 +2,9 @@
 // This example fetch is specifically for our Profile API and is why the file is called profileService.js
 import axios from "axios";
 
-const getAllDecks = async () => {
-  const response = await axios.get(`/api/decks`);
-
+const getAllDecks = async (userId) => {
+  const response = await axios.get(`/api/decks/${userId}`);
+  // const response = await axios.get(`/api/decks`)
   return response.data || [];
 };
 

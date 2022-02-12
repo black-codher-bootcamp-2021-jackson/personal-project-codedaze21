@@ -4,7 +4,9 @@ const cardSchema = require("./Cards")
 
 const deckSchema  = new Schema ({
     deckName: String,
-    cardsInDeck: [cardSchema]
+    cardsInDeck: [cardSchema],
+    userId: String,
+    // userId: Schema.Types.ObjectId,
 });
 
 mongoose.model("decks", deckSchema);

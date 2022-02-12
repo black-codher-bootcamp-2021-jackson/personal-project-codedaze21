@@ -25,5 +25,3 @@ const LoginScreen = () => {
 }
 
 export default LoginScreen;
-
-            {/* {decks.map ((deck, index) => <h1 key={index}>{deck.deckName}</h1>)} */}

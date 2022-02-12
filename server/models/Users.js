@@ -1,14 +1,16 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
+// const deckSchema = require("./Decks")
 const userSchema = new Schema(
     {
-    username: { type: String, required: true },
+    username: String,
     firstName: String,
     lastName: String,
-    emailAddress: { type: String, required: true, unique: true },
+    emailAddress: String,
+    image: String,
     bio: String,
-    password: { type: String, required: true }
+    password: String,
+    // userDecks: [deckSchema]
     }
 );
 

@@ -5,7 +5,9 @@ const SignUp = () => {
     const [username, setUsername] = useState("")
     const [emailAddress, setEmailAddress] = useState("")
     const [password, setPassword] = useState("")
-    
+    const [firstName, setFirstName] = useState("")
+
+
     async function signUpUser(event) {
 
         event.preventDefault()
@@ -18,6 +20,7 @@ const SignUp = () => {
             },
             body: JSON.stringify({
                 username,
+                firstName,
                 emailAddress,
                 password
             })
@@ -37,6 +40,7 @@ const SignUp = () => {
                 <form className="signupform" onSubmit={signUpUser}>
                 <div className="signUpFormCont">
                     <label><input className="userNameSignupInput" type="text" name="username" id="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/></label>
+                    <label><input className="firstNameSignupInput" type="text" name="firstName" id="firstName" placeholder="Name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/></label>
                     <label><input className="emailSignupInput" type="email" name="emailAddress" placeholder="Email" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)}/></label>
                     <label><input className="passwordSignupInput" type="password" id="userPassword" minLength="8" name="password" placeholder="Password (8 characters minimum)" value={password} onChange={(e) => setPassword(e.target.value)}/></label>
                 </div>
